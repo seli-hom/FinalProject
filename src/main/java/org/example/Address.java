@@ -41,7 +41,6 @@ public class Address {
     private static boolean isPostalCodeValid(String postalCode) {
         boolean valid = false;
 
-        postalCode.toUpperCase();
         if (postalCode.length() == 7) {
             for (int i = 0; i < 7; i++) {
                 char c = postalCode.charAt(i);
@@ -61,6 +60,7 @@ public class Address {
                     case 0, 2, 4 -> Character.isAlphabetic(c);
                     default -> Character.isDigit(c);
                 };
+                return valid;
             }
         }
         return valid;
