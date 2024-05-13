@@ -1,4 +1,3 @@
-package org.example;
 
 public class Address {
     private int streetNo;
