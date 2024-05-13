@@ -5,7 +5,7 @@ public class Course {
     private String courseId;
     private String courseName;
     private double credits;
-    private Departement departement;
+    private Department department;
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> students;
     private static String nextId = "" + 1;
