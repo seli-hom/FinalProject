@@ -1,5 +1,12 @@
 package org.example;
 
+import lombok.*;
+
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+@Getter
+@Setter
 public class Department {
     private String departmentId;
     private String departmentName;
