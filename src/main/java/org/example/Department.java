@@ -1,3 +1,5 @@
+package org.example;
+
 public class Department {
     private String departementId;
     private String departementName;

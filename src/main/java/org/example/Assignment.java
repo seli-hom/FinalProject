@@ -1,3 +1,5 @@
+package org.example;
+
 public class Assignment {
     private String assignementId;
     private String assignementName;
