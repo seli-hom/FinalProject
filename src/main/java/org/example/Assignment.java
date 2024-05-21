@@ -6,4 +6,6 @@ public class Assignment {
     private double weight;
     private int maxScore;
     private static int nextId = 1;
+
+    //private
 }

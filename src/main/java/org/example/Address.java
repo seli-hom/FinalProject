@@ -15,26 +15,27 @@ public class Address {
     private String country;
 
     public Address(int streetNo, String street, String city, String province, String postalCode, String country) {
-       if (isPostalCodeValid(postalCode)) {
-           this.streetNo = streetNo;
-           this.street = street;
-           this.city = city;
-           this.province = province;
-           this.postalCode = postalCode;
-           this.country = country;
-       } else {
-          setStreetNo(null);
-          setStreet(null);
-          setCity(null);
-          setProvince(null);
-          setPostalCode(null);
-          setCountry(null);
-       }
+        if (isPostalCodeValid(postalCode)) {
+            this.streetNo = streetNo;
+            this.street = street;
+            this.city = city;
+            this.province = province;
+            this.postalCode = postalCode.toUpperCase();
+            this.country = country;
+        } else {
+            setStreetNo(0);
+            setStreet(null);
+            setCity(null);
+            setProvince(null);
+            setPostalCode(null);
+            setCountry(null);
+        }
     }
 
     /**
-     * Chacks if the postalCode provided is valid by determining if it follows the character digit rule
+     * Checks if the postalCode provided is valid by determining if it follows the character digit rule
      * A1B2C3 and in case of space present A1B 2C3
+     *
      * @param postalCode String that contains digit and letters
      * @return true if the postal code provided is valid
      */
@@ -49,8 +50,11 @@ public class Address {
                     case 1, 4, 6 -> Character.isDigit(c);
                     default -> Character.isSpaceChar(c);
                 };
-                return valid;
+                if (valid == false) {
+                    return false;
+                }
             }
+            return valid;
         }
 
         if (postalCode.length() == 6) {
@@ -60,8 +64,12 @@ public class Address {
                     case 0, 2, 4 -> Character.isAlphabetic(c);
                     default -> Character.isDigit(c);
                 };
-                return valid;
+                if (valid == false) {
+                    return false;
+                }
             }
+            return true;
         }
-        return valid;
+        return true;
     }
+}
