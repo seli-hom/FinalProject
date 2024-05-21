@@ -1,7 +1,9 @@
 package org.example;
 
-import java.util.ArrayList;
+import lombok.Getter;
 
+import java.util.ArrayList;
+@Getter
 public class Student {
     private String studentId;
     private String studentName;

@@ -32,6 +32,12 @@ public class Course {
         }
         return false;
     }
+
+    /**
+     * adds a student to the student list of the course, also add a new null element to each
+     * assignment of this course, and add a new null element for the finalScores.
+     * @return
+     */
     public boolean registerStudent(){
         //average score for each assignment
     }
@@ -39,6 +45,13 @@ public class Course {
         // average score for each student
     }
 
+    /**
+     * adds a new assignment to the course
+     * @param assignmentName
+     * @param weight
+     * @param maxScore
+     * @return the assignment with the parameters
+     */
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
         int studentAmount = students.size();
         Assignment assignment = new Assignment(assignmentName, weight, maxScore, studentAmount);
@@ -68,6 +81,13 @@ public class Course {
      * @return
      */
     public String toString(){
+
+        String studentIdNumbers = "";
+        for (Student student : students) {
+            String number = student.getStudentId();
+            studentIdNumbers += number + ", ";
+
+        }
         return "Course{" +
                 "courseId='" + courseId + '\'' +
                 ", courseName='" + courseName + '\'' +
