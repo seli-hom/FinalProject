@@ -50,7 +50,7 @@ public class Address {
                     case 1, 4, 6 -> Character.isDigit(c);
                     default -> Character.isSpaceChar(c);
                 };
-                if (valid == false) {
+                if (!valid) {
                     return false;
                 }
             }
@@ -64,7 +64,7 @@ public class Address {
                     case 0, 2, 4 -> Character.isAlphabetic(c);
                     default -> Character.isDigit(c);
                 };
-                if (valid == false) {
+                if (!valid) {
                     return false;
                 }
             }

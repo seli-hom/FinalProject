@@ -5,7 +5,9 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         Address adress = new Address(1,"hello","montreal",
-                "qc","hpp 3e6","canada");
-        System.out.print(adress);
+                "qc","h5p 3e6","canada");
+        Department department = new Department("d12345", "CSop");
+
+        System.out.print(department);
     }
 }
