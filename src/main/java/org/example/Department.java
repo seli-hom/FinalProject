@@ -16,6 +16,7 @@ public class Department {
         if (validateDepartmentName(departmentName)){
             this.departmentId = departmentId.toUpperCase();
             this.departmentName = departmentName;
+            nextId++;
         } else {
             this.departmentId = null;
             this.departmentName = null;
