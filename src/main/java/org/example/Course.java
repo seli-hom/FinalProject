@@ -25,7 +25,7 @@ public class Course {
     public boolean isAssignmentWeightValid(){
         int totalWeight = 0;
         for (Assignment assigment : assignments) {
-            totalWeight += assigment.getWeight();
+            totalWeight += (int) assigment.getWeight();
             if (totalWeight == 100) {
                 return true;
             }

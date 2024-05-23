@@ -14,7 +14,7 @@ public class Department {
 
     public Department(String departmentId, String departmentName) {
         if (validateDepartmentName(departmentName)){
-            this.departmentId = departmentId.toUpperCase();
+            this.departmentId = String.valueOf('D' + nextId);
             this.departmentName = departmentName;
             nextId++;
         } else {
