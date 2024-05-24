@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
+import static org.example.util.Util.toTitleCase;
+
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -90,7 +92,7 @@ public class Course {
         }
         return "Course{" +
                 "courseId='" + courseId + '\'' +
-                ", courseName='" + courseName + '\'' +
+                ", courseName='" + toTitleCase(courseName + '\'' +
                 ", credits=" + credits +
                 ", department=" + department.getDepartmentName() +
                 ", assignments=" + assignments +
