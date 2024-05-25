@@ -18,7 +18,6 @@ public class Student {
     private Address address;
     private Department department;
     private ArrayList<Course> registeredCourses;
-    private ArrayList<Double> finalScores;
     private static int nextId = 1;
 
     /**
@@ -34,6 +33,11 @@ public class Student {
                 return false;
             } else {
                 registeredCourses.add(newCourse);
+
+                boolean add = course.getStudents().add(Student);
+                boolean add2 = course.getStudents().add(Student);
+
+                boolean addScore = course.getAssignments().getScore().add(null);
             }
         }
         return true;
@@ -50,6 +54,10 @@ public class Student {
         for (Course existingCourse : registeredCourses) {
             if (course.getCourseId().equals(existingCourse.getCourseId())) {
                 registeredCourses.remove(existingCourse);
+
+                boolean remove = existingCourse.getStudents().remove(studentName);
+                boolean remove2 = existingCourse.getStudents().remove(studentId);
+
                 return true;
             } else {
                 return false;
@@ -67,7 +75,6 @@ public class Student {
         nextId++;
     }
 
-    @Override
     public String toSimplifiedString() {
         return "Student{" +
                 "studentId='" + studentId + '\'' +

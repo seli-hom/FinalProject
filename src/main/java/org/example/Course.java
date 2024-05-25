@@ -18,6 +18,7 @@ public class Course {
     private Department department;
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> students;
+    private ArrayList<Double> finalScores;
     private static String nextId = "" + 1;
 
     /**
@@ -40,11 +41,15 @@ public class Course {
      * assignment of this course, and add a new null element for the finalScores.
      * @return
      */
-    public boolean registerStudent(){
-        //average score for each assignment
+    public boolean registerStudent(Student student){
+        students.add(student);
+        finalScores.add(null);
+        assignments.getScores().add(null);
     }
     public int[] calcStudentsAverage(){
-        // average score for each student
+        for (Student student : students) {
+
+        }
     }
 
     /**
@@ -70,7 +75,7 @@ public class Course {
 
     public String toSimplifiedString(){
         return "Course{" +
-                "courseId='" + courseId + '\'' +
+                "courseId='" + 'C' + courseId + '\'' +
                 ", courseName='" + courseName + '\'' +
                 ", credits=" + credits +
                 ", department=" + department.getDepartmentName() +
@@ -90,14 +95,14 @@ public class Course {
             studentIdNumbers += number + ", ";
 
         }
-        return "Course{" +
+        String str = "Course{" +
                 "courseId='" + courseId + '\'' +
-                ", courseName='" + toTitleCase(courseName + '\'' +
+                ", courseName='" + (toTitleCase(courseName)) + '\'' +
                 ", credits=" + credits +
                 ", department=" + department.getDepartmentName() +
                 ", assignments=" + assignments +
                 ", registered students" + students +
                 '}';
-
+               return str;
     }
 }

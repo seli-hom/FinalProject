@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 @NoArgsConstructor
@@ -16,7 +17,7 @@ public class Assignment {
     private double weight;
     private int maxScore;
     private double assignmentAverage;
-    private int[] scores;
+    private ArrayList<Integer> scores;
     private static int nextId = 1;
 
     public Assignment(String assignementName, double weight, int maxScore, int studentAmount) {
@@ -24,7 +25,7 @@ public class Assignment {
         this.assignementName = assignementName;
         this.weight = weight;
         this.maxScore = maxScore;
-        this.scores = new int[studentAmount];
+        this.scores = new ArrayList<>(studentAmount);
     }
 
     /**
