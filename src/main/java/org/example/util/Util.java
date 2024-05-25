@@ -13,16 +13,21 @@ public class Util {
     public static String toTitleCase(String strIn){
         String strOut = "";
         String[] names = (strIn.split(" "));
+        if (strIn.isEmpty()){
+            return null;
+        }
 
-        String fName1 = names[0].substring(0,1).toUpperCase();
-        String fName2 = names[0].substring(1).toLowerCase();
-        String fullName = fName1 + fName2;
-        strOut += fullName;
-        String fName3 = names[1].substring(0,1).toUpperCase();
-        String fName4 = names[1].substring(1).toLowerCase();
-        String fullName2 = fName1 + fName2;
-        strOut += fullName2;
-
+        for (int i = 0; i < names.length; i++){
+            String fName1 = names[i].substring(0, 1).toUpperCase();
+            String fName2 = names[i].substring(1).toLowerCase();
+            String fullName = fName1 + fName2;
+            strOut += fullName;
+            if (i == names.length - 1){
+                break;
+            } else {
+                strOut += " ";
+            }
+        }
         return strOut;
     }
 }
