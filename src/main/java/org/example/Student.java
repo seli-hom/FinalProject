@@ -62,7 +62,7 @@ public class Student {
     }
 
     public Student(String studentName, Gender gender, Address address, Department department) {
-        this.studentName = toTitleCase(studentName;
+        this.studentName = toTitleCase(studentName);
         this.gender = gender;
         this.address = address;
         this.department = department;

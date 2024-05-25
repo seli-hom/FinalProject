@@ -45,12 +45,25 @@ public class Course {
     public boolean registerStudent(Student student){
         registeredStudents.add(student);
         finalScores.add(null);
-        assignments.getScores().add(null);
+        for (int i = 0; i < assignments.size(); i++) {
+            assignments.get(i).getScores().add(null);
+        }
+        return true;
     }
     public int[] calcStudentsAverage(){
-        for (Student student : registeredStudents) {
 
+        int[]sums = new int[assignments.size()];
+        for (Assignment assignment : assignments) {
+            double sum = 0;
+            for (int i = 0; i < assignment.getScores().size(); i++) {
+                sum += assignment.getScores().get(i);
+            }
+            sum /= registeredStudents.size();
+            for (int i = 0; i < assignment.getScores().size(); i++) {
+                sums[i] = (int) sum;
+            }
         }
+        return sums;
     }
 
     /**
