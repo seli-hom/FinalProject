@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static org.example.util.Util.toTitleCase;
 
@@ -17,7 +18,7 @@ public class Course {
     private double credits;
     private Department department;
     private ArrayList<Assignment> assignments;
-    private ArrayList<Student> students;
+    private ArrayList<Student> registeredStudents;
     private ArrayList<Double> finalScores;
     private static String nextId = "" + 1;
 
@@ -42,12 +43,12 @@ public class Course {
      * @return
      */
     public boolean registerStudent(Student student){
-        students.add(student);
+        registeredStudents.add(student);
         finalScores.add(null);
         assignments.getScores().add(null);
     }
     public int[] calcStudentsAverage(){
-        for (Student student : students) {
+        for (Student student : registeredStudents) {
 
         }
     }
@@ -60,17 +61,27 @@ public class Course {
      * @return the assignment with the parameters
      */
     public boolean addAssignment(String assignmentName, double weight, int maxScore) {
-        int studentAmount = students.size();
+        int studentAmount = registeredStudents.size();
         Assignment assignment = new Assignment(assignmentName, weight, maxScore, studentAmount);
         assignments.add(assignment);
     }
 
     public void generateScore(){
+        Random rand = new Random();
+
 
     }
 
     public void displayScores(){
-
+        int rows = assignments.size() + 2;
+        int columns = getAssignments().getScores().lenght;
+        int[][] scoreTable = new int[rows][columns];
+        for (int i = 0; i < rows; i++){
+            scoreTable[i] = registeredStudents.getStudentName();
+            for (int j = 0; j < columns; j++) {
+                scoreTable[i][j] = assignments.getScore();
+            }
+        }
     }
 
     public String toSimplifiedString(){
@@ -90,7 +101,7 @@ public class Course {
     public String toString(){
 
         String studentIdNumbers = "";
-        for (Student student : students) {
+        for (Student student : registeredStudents) {
             String number = student.getStudentId();
             studentIdNumbers += number + ", ";
 
@@ -101,7 +112,7 @@ public class Course {
                 ", credits=" + credits +
                 ", department=" + department.getDepartmentName() +
                 ", assignments=" + assignments +
-                ", registered students" + students +
+                ", registered students" + registeredStudents +
                 '}';
                return str;
     }

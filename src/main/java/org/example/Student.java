@@ -32,12 +32,8 @@ public class Student {
             if (course.getCourseId().equals(newCourse.getCourseId())) {
                 return false;
             } else {
-                registeredCourses.add(newCourse);
-
-                boolean add = course.getStudents().add(Student);
-                boolean add2 = course.getStudents().add(Student);
-
-                boolean addScore = course.getAssignments().getScore().add(null);
+                registeredCourses.add(course);
+                course.getRegisteredStudents().add(this);
             }
         }
         return true;
@@ -55,8 +51,7 @@ public class Student {
             if (course.getCourseId().equals(existingCourse.getCourseId())) {
                 registeredCourses.remove(existingCourse);
 
-                boolean remove = existingCourse.getStudents().remove(studentName);
-                boolean remove2 = existingCourse.getStudents().remove(studentId);
+                existingCourse.getRegisteredStudents().remove(this);
 
                 return true;
             } else {
