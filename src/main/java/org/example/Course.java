@@ -87,12 +87,11 @@ public class Course {
 
     public void displayScores(){
         int rows = assignments.size() + 2;
-        int columns = getAssignments().getScores().lenght;
+        int columns = getRegisteredStudents().size();
         int[][] scoreTable = new int[rows][columns];
-        for (int i = 0; i < rows; i++){
-            scoreTable[i] = registeredStudents.getStudentName();
-            for (int j = 0; j < columns; j++) {
-                scoreTable[i][j] = assignments.getScore();
+        for (Assignment assignment : assignments){
+            assignment.getScores().size();
+
             }
         }
     }
