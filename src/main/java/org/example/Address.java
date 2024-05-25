@@ -39,7 +39,7 @@ public class Address {
      * @param postalCode String that contains digit and letters
      * @return true if the postal code provided is valid
      */
-    private static boolean isPostalCodeValid(String postalCode) {
+    public static boolean isPostalCodeValid(String postalCode) {
         boolean valid = false;
 
         if (postalCode.length() == 7) {
@@ -58,7 +58,7 @@ public class Address {
         }
 
         if (postalCode.length() == 6) {
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 6; i++) {
                 char c = postalCode.charAt(i);
                 valid = switch (i) {
                     case 0, 2, 4 -> Character.isAlphabetic(c);
