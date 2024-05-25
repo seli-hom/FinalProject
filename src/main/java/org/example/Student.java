@@ -17,7 +17,7 @@ public class Student {
     private Gender gender;
     private Address address;
     private Department department;
-    private Course[] registeredCourses;
+    private ArrayList<Course> registeredCourses;
     private ArrayList<Double> finalScores;
     private static int nextId = 1;
 
@@ -33,9 +33,10 @@ public class Student {
             if (course.getCourseId().equals(newCourse.getCourseId())) {
                 return false;
             } else {
-
+                registeredCourses.add(newCourse);
             }
         }
+        return true;
     }
 
     /**
@@ -45,8 +46,16 @@ public class Student {
      * @return true and removes student if the student is registered to the course and false
      * if the student was not registered to the course
      */
-    public static boolean dropCourse(Course course){
-
+    public  boolean dropCourse(Course course) {
+        for (Course existingCourse : registeredCourses) {
+            if (course.getCourseId().equals(existingCourse.getCourseId())) {
+                registeredCourses.remove(existingCourse);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     public Student(String studentName, Gender gender, Address address, Department department) {
