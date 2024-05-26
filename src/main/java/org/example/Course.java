@@ -97,14 +97,12 @@ public class Course {
      */
     public void generateScores(){
         Random rand = new Random();
-        int[][] studentsScores = new int[assignments.size()][registeredStudents.size()];
-        for (int i = 0; i < registeredStudents.size(); i++) {
-            studentsScores[i][] = registeredStudents.get(i).getStudentId();
-            for (int j = 0; j < assignments.size(); j++) {
-                int randomSCore = rand.nextInt(1,100);
-                studentsScores[i][j] = randomSCore;
-            }
-        }
+        for (Assignment assignment : assignments){
+            for (int i = 0; i < registeredStudents.size(); i++){
+                int randomScore = rand.nextInt(1,100);
+                assignment.getScores().set(i,randomScore);
+            } //sets scores
+        } // goes through all the assignments
     }
 
     /**
