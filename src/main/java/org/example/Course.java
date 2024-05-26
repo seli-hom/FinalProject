@@ -2,13 +2,15 @@ package org.example;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import static org.example.util.Util.toTitleCase;
-
+@NoArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -21,6 +23,13 @@ public class Course {
     private ArrayList<Student> registeredStudents;
     private ArrayList<Double> finalScores;
     private static String nextId = "" + 1;
+
+    public Course(String courseName, double credits, Department department) {
+        this.courseId = "C" + nextId++;
+        this.courseName = courseName;
+        this.credits = credits;
+        this.department = department;
+    }
 
     /**
      * Checks if the sum of weights of all assignments of that course equals to 1 (100%)
@@ -57,17 +66,14 @@ public class Course {
      */
     public int[] calcStudentsAverage(){
 
-        int[]sums = new int[assignments.size()];
-        for (Assignment assignment : assignments) {
+        int[]sums = new int[registeredStudents.size()];
+        for (int i = 0; i < registeredStudents.size(); i++) {
             double sum = 0;
-            for (int i = 0; i < assignment.getScores().size(); i++) {
+                for (Assignment assignment : assignments) {
                 sum += assignment.getScores().get(i);
+                 }
+                sums[i] = (int) (sum / assignments.size());
             }
-            sum =sum /  registeredStudents.size() * assignment.getWeight();
-            for (int i = 0; i < assignment.getScores().size(); i++) {
-                sums[i] = (int) sum;
-            }
-        }
         return sums;
     }
 
@@ -100,51 +106,62 @@ public class Course {
         }
     }
 
+    /**
+     * display names of students and their scores in the assignments as well as their final score
+     */
     public void displayScores(){
-        int rows = assignments.size() + 2;
-        int columns = getRegisteredStudents().size();
-        int[][] scoreTable = new int[rows][columns];
-        for (Assignment assignment : assignments){
-            assignment.getScores().size();
-
-            }
+        System.out.printf("Course: %s %s%n", courseName, courseId);
+        System.out.print("Student ID ");
+        for (Assignment assignment : assignments) {
+            System.out.print(assignment.getAssignementName() + " ");
         }
-    }
+        System.out.println("Final Score");
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            System.out.print(registeredStudents.get(i).getStudentId() + " ");
+            for (Assignment assignment : assignments) {
+                System.out.print(assignment.getScores().get(i) + " ");
+            }
+            System.out.println(finalScores.get(i));
+        }
+}
 
 /**
  * Creates a string that contains only the courseID, name, department and how many credits it is worth.
  * @return a simplified string
  */
-    public String toSimplifiedString(){
-        return "Course{" +
-                "courseId='" + 'C' + courseId + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", credits=" + credits +
-                ", department=" + department.getDepartmentName() +
-                "}";
+public String toSimplifiedString(){
+    return "Course{" +
+            "courseId='" +  courseId + '\'' +
+            ", courseName='" + courseName + '\'' +
+            ", credits=" + credits +
+            ", department=" + department.getDepartmentName() +
+            "}";
+}
+
+/**
+ * converts course to a string that contains the id, name, credits, department,
+ * assignments and registered students ID
+ * @return
+ */
+
+@Override
+public String toString(){
+
+    String studentIdNumbers = "";
+    for (Student student : registeredStudents) {
+        String number = student.getStudentId();
+        studentIdNumbers += number + ", ";
+
     }
-
-    /**
-     * converts course to a string that contains the id, name, credits, department,
-     * assignments and registered students ID
-     * @return
-     */
-    public String toString(){
-
-        String studentIdNumbers = "";
-        for (Student student : registeredStudents) {
-            String number = student.getStudentId();
-            studentIdNumbers += number + ", ";
-
-        }
-        String str = "Course{" +
-                "courseId='" + courseId + '\'' +
-                ", courseName='" + (toTitleCase(courseName)) + '\'' +
-                ", credits=" + credits +
-                ", department=" + department.getDepartmentName() +
-                ", assignments=" + assignments +
-                ", registered students" + studentIdNumbers +
-                '}';
-               return str;
-    }
+    String str = "Course{" +
+            "courseId='" + courseId + '\'' +
+            ", courseName='" + (toTitleCase(courseName)) + '\'' +
+            ", credits=" + credits +
+            ", department=" + department.getDepartmentName() +
+            ", assignments=" + assignments +
+            ", registered students" + studentIdNumbers +
+            '}';
+    return str;
+}
 }
