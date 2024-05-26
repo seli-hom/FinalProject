@@ -30,7 +30,7 @@ public class Assignment {
     /**
      * Calculates the average score for one assignment
      */
-    public double calcAssignmentAvg(){
+    public void calcAssignmentAvg(){
         double sum = 0;
         int students = 0;
 
@@ -40,7 +40,6 @@ public class Assignment {
         }
 
         assignmentAverage = sum / students;
-        return assignmentAverage;
     }
 
     /**
