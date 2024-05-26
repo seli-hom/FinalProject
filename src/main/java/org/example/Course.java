@@ -22,13 +22,14 @@ public class Course {
     private ArrayList<Assignment> assignments;
     private ArrayList<Student> registeredStudents;
     private ArrayList<Double> finalScores;
-    private static String nextId = "" + 1;
+    private static int nextId = 1;
 
     public Course(String courseName, double credits, Department department) {
-        this.courseId = "C" + nextId++;
+        this.courseId = "C" + String.valueOf(nextId);
         this.courseName = courseName;
         this.credits = credits;
         this.department = department;
+        nextId++;
     }
 
     /**

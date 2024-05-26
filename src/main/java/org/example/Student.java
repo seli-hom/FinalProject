@@ -2,12 +2,13 @@ package org.example;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
 
 import static org.example.util.Util.toTitleCase;
-
+@NoArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -19,6 +20,15 @@ public class Student {
     private Department department;
     private ArrayList<Course> registeredCourses;
     private static int nextId = 1;
+
+    public Student(String studentName, Gender gender, Address address,
+                   Department department) {
+        this.studentName = toTitleCase(studentName);
+        this.gender = gender;
+        this.address = address;
+        this.department = department;
+        this.studentId = "S" + nextId++;
+    }
 
     /**
      * registers a course,adds the course to the student's registeredCourses list,
