@@ -21,15 +21,6 @@ public class Student {
     private ArrayList<Course> registeredCourses;
     private static int nextId = 1;
 
-    public Student(String studentName, Gender gender, Address address,
-                   Department department) {
-        this.studentName = toTitleCase(studentName);
-        this.gender = gender;
-        this.address = address;
-        this.department = department;
-        this.studentId = "S" + nextId++;
-    }
-
     /**
      * registers a course,adds the course to the student's registeredCourses list,
      *adds the student to the course's registeredStudents list, appends a null
@@ -64,8 +55,6 @@ public class Student {
                 existingCourse.getRegisteredStudents().remove(this);
 
                 return true;
-            } else {
-                return false;
             }
         }
         return false;
