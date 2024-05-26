@@ -1,9 +1,6 @@
 package org.example;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,6 +8,7 @@ import java.util.Random;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Getter
+@Setter
 public class Assignment {
     private String assignementId;
     private String assignementName;

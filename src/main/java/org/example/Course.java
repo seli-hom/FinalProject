@@ -50,6 +50,11 @@ public class Course {
         }
         return true;
     }
+
+    /**
+     *Calculates the averages of all the scores per student
+     * @return the averages in an array.
+     */
     public int[] calcStudentsAverage(){
 
         int[]sums = new int[assignments.size()];
@@ -58,7 +63,7 @@ public class Course {
             for (int i = 0; i < assignment.getScores().size(); i++) {
                 sum += assignment.getScores().get(i);
             }
-            sum /= registeredStudents.size();
+            sum =sum /  registeredStudents.size() * assignment.getWeight();
             for (int i = 0; i < assignment.getScores().size(); i++) {
                 sums[i] = (int) sum;
             }
@@ -77,12 +82,22 @@ public class Course {
         int studentAmount = registeredStudents.size();
         Assignment assignment = new Assignment(assignmentName, weight, maxScore, studentAmount);
         assignments.add(assignment);
+        return true;
     }
 
+    /**
+     * Generates a random dcore for each student's assignment
+     */
     public void generateScore(){
         Random rand = new Random();
-
-
+        int[][] studentsScores = new int[assignments.size()][registeredStudents.size()];
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            studentsScores[i][] = registeredStudents.get(i);
+            for (int j = 0; j < assignments.size(); j++) {
+                int randomSCore = rand.nextInt(1,100);
+                studentsScores[i][j] = randomSCore;
+            }
+        }
     }
 
     public void displayScores(){
@@ -96,6 +111,10 @@ public class Course {
         }
     }
 
+/**
+ * Creates a string that contains only the courseID, name, department and how many credits it is worth.
+ * @return a simplified string
+ */
     public String toSimplifiedString(){
         return "Course{" +
                 "courseId='" + 'C' + courseId + '\'' +
