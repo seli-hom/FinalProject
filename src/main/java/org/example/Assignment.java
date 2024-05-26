@@ -24,12 +24,13 @@ public class Assignment {
         this.weight = weight;
         this.maxScore = maxScore;
         this.scores = new ArrayList<>(studentAmount);
+        nextId++;
     }
 
     /**
      * Calculates the average score for one assignment
      */
-    private void calcAssignmentAvg(){
+    public double calcAssignmentAvg(){
         double sum = 0;
         int students = 0;
 
@@ -39,6 +40,7 @@ public class Assignment {
         }
 
         assignmentAverage = sum / students;
+        return assignmentAverage;
     }
 
     /**

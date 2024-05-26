@@ -93,7 +93,7 @@ public class Course {
     }
 
     /**
-     * Generates a random dcore for each student's assignment
+     * Generates a random score for each student's assignment
      */
     public void generateScores(){
         Random rand = new Random();
@@ -125,11 +125,11 @@ public class Course {
         }
 }
 
-/**
+    /**
  * Creates a string that contains only the courseID, name, department and how many credits it is worth.
  * @return a simplified string
  */
-public String toSimplifiedString(){
+    public String toSimplifiedString(){
     return "Course{" +
             "courseId='" +  courseId + '\'' +
             ", courseName='" + courseName + '\'' +
@@ -138,14 +138,14 @@ public String toSimplifiedString(){
             "}";
 }
 
-/**
+    /**
  * converts course to a string that contains the id, name, credits, department,
  * assignments and registered students ID
  * @return
  */
 
-@Override
-public String toString(){
+    @Override
+    public String toString(){
 
     String studentIdNumbers = "";
     for (Student student : registeredStudents) {
