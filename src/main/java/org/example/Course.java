@@ -88,11 +88,11 @@ public class Course {
     /**
      * Generates a random dcore for each student's assignment
      */
-    public void generateScore(){
+    public void generateScores(){
         Random rand = new Random();
         int[][] studentsScores = new int[assignments.size()][registeredStudents.size()];
         for (int i = 0; i < registeredStudents.size(); i++) {
-            studentsScores[i][] = registeredStudents.get(i);
+            studentsScores[i][] = registeredStudents.get(i).getStudentId();
             for (int j = 0; j < assignments.size(); j++) {
                 int randomSCore = rand.nextInt(1,100);
                 studentsScores[i][j] = randomSCore;
@@ -143,7 +143,7 @@ public class Course {
                 ", credits=" + credits +
                 ", department=" + department.getDepartmentName() +
                 ", assignments=" + assignments +
-                ", registered students" + registeredStudents +
+                ", registered students" + studentIdNumbers +
                 '}';
                return str;
     }
