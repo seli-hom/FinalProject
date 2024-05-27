@@ -2,62 +2,75 @@ import org.example.Assignment;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class AssignmentTest {
    @Test
     public void testCalcAssignmentAvg(){
-      Assignment assignment1 = new Assignment();
-      assignment1.getScores().set(0,73);
-      assignment1.getScores().set(1,90);
-      assignment1.getScores().set(2,68);
-      assignment1.getScores().set(3,89);
+       Assignment assignment = new Assignment("Assignment 1", 50, 100, 3);
 
-      double expected = 80;
-      double result = assignment1.calcAssignmentAvg();
+       ArrayList<Integer> scores = new ArrayList<>();
+       scores.add(50);
+       scores.add(63);
+       scores.add(79);
+       assignment.setScores(scores);
+       assignment.calcAssignmentAvg();
 
-      Assertions.assertEquals(expected, result);
+       double expected = 64;
+       double result = assignment.getAssignmentAverage();
+
+       Assertions.assertEquals(expected, result);
    }
 
  @Test
     public void testCalcAssignmentAvg2(){
-      Assignment assignment1 = new Assignment();
-      assignment1.getScores().set(0,68);
-      assignment1.getScores().set(1,68);
-      assignment1.getScores().set(2,68);
-      assignment1.getScores().set(3,68);
+     Assignment assignment = new Assignment("Assignment 1", 50, 100, 3);
 
-      double expected = 68;
-      double result = assignment1.calcAssignmentAvg();
+     ArrayList<Integer> scores = new ArrayList<>();
+     scores.add(55);
+     scores.add(65);
+     scores.add(75);
+     assignment.setScores(scores);
+     assignment.calcAssignmentAvg();
 
-      Assertions.assertEquals(expected, result);
+     double expected = 65;
+     double result = assignment.getAssignmentAverage();
+
+     Assertions.assertEquals(expected, result);
    }
 
  @Test
     public void testCalcAssignmentAvg3(){
-      Assignment assignment1 = new Assignment();
-      assignment1.getScores().set(0,73);
-      assignment1.getScores().set(1,56);
-      assignment1.getScores().set(2,68);
-      assignment1.getScores().set(3,78);
+     Assignment assignment = new Assignment("Assignment 1", 50, 100, 3);
 
-      double expected = 68.75;
-      double result = assignment1.calcAssignmentAvg();
+     ArrayList<Integer> scores = new ArrayList<>();
+     scores.add(90);
+     scores.add(80);
+     scores.add(70);
+     assignment.setScores(scores);
+     assignment.calcAssignmentAvg();
 
-      Assertions.assertEquals(expected, result);
+     double expected = 80;
+     double result = assignment.getAssignmentAverage();
+
+     Assertions.assertEquals(expected, result);
    }
 
  @Test
     public void testCalcAssignmentAvg4(){
-      Assignment assignment1 = new Assignment();
-      assignment1.getScores().set(0,23);
-      assignment1.getScores().set(1,90);
-      assignment1.getScores().set(2,100);
-      assignment1.getScores().set(3,89);
+     Assignment assignment = new Assignment("Assignment 1", 50, 100, 2);
 
-      double expected = 75.5;
-      double result = assignment1.calcAssignmentAvg();
+     ArrayList<Integer> scores = new ArrayList<>();
+     scores.add(90);
+     scores.add(80);
+     assignment.setScores(scores);
+     assignment.calcAssignmentAvg();
 
-      Assertions.assertEquals(expected, result);
+     double expected = 85;
+     double result = assignment.getAssignmentAverage();
+
+     Assertions.assertEquals(expected, result);
    }
-
-
 }

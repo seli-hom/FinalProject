@@ -8,8 +8,40 @@ import java.util.ArrayList;
 public class CourseTest {
     @Test
     public void testCalcStudentAvg(){
+        Course course = new Course();
 
+        int[] expected = new int[course.getRegisteredStudents().size()];
+        int[] results = course.calcStudentsAverage();
 
+        Assertions.assertEquals(expected, results);
+    }
+   @Test
+    public void testCalcStudentAvg2(){
+        Course course = new Course();
+        ArrayList<Assignment> assignments = course.getAssignments();
+
+        int[] expected = new int[course.getRegisteredStudents().size()];
+        int[] results = course.calcStudentsAverage();
+
+        Assertions.assertEquals(expected, results);
+    }
+   @Test
+    public void testCalcStudentAvg3(){
+        Course course = new Course();
+
+        int[] expected = new int[course.getRegisteredStudents().size()];
+        int[] results = course.calcStudentsAverage();
+
+        Assertions.assertEquals(expected, results);
+    }
+   @Test
+    public void testCalcStudentAvg4(){
+        Course course = new Course();
+
+        int[] expected = new int[course.getRegisteredStudents().size()];
+        int[] results = course.calcStudentsAverage();
+
+        Assertions.assertEquals(expected, results);
     }
 
     @Test
@@ -86,7 +118,7 @@ public class CourseTest {
         assignment.setWeight(0.4);
         assignment1.setWeight(0.1);
         assignment2.setWeight(0.3);
-        assignment3.setWeight(0.2)
+        assignment3.setWeight(0.2);
 
         course.getAssignments().set(0, assignment);
         course.getAssignments().set(1, assignment1);
