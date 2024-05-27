@@ -37,10 +37,10 @@ public class Course {
      * @return true if the sum is equal to 1
      */
     public boolean isAssignmentWeightValid(){
-        int totalWeight = 0;
+        double totalWeight = 0;
         for (Assignment assigment : assignments) {
-            totalWeight += (int) assigment.getWeight();
-            if (totalWeight == 100) {
+            totalWeight += assigment.getWeight();
+            if (totalWeight == 1.0) {
                 return true;
             }
         }

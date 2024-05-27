@@ -27,6 +27,12 @@ public class Assignment {
         nextId++;
     }
 
+    public Assignment(String assignementName, double weight, ArrayList<Integer> scores) {
+        this.assignementName = assignementName;
+        this.weight = weight;
+        this.scores = scores;
+    }
+
     /**
      * Calculates the average score for one assignment
      */
@@ -39,7 +45,7 @@ public class Assignment {
             students++;
         }
 
-        assignmentAverage = sum / students;
+        assignmentAverage = sum / students * weight;
     }
 
     /**
